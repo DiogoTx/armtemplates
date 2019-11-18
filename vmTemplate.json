@@ -84,7 +84,7 @@
             "name": "[concat(parameters('vmPrefix'), '-gateway-os-vhd')]"
           },
           "imageReference": {
-            "id": "[resourceId('DTVMImageTest','Microsoft.Compute/images', concat(parameters('vmPrefix'), '-gateway-osImage'))]"
+            "id": "[resourceId('DTVMImageTest','Microsoft.Compute/images', parameters('vmPrefix'))]"
           }
         },
         "networkProfile": {
