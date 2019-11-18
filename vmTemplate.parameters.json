@@ -11,6 +11,9 @@
     "networkInterfaceName": {
       "value": "dtubuntuvm181119"
     },
+    "networkSecurityGroupName": {
+      "value": "DTUbuntuVM181119-nsg"
+    },
     "subnetName": {
       "value": "default"
     },
