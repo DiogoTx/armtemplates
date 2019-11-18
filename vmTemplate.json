@@ -40,6 +40,9 @@
     },
     "vmPrefix": {
       "type": "String"
+    },
+    "networkSecurityGroupName": {
+        "type": "String"
     }
   },
   "variables": {},
