@@ -3,22 +3,22 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "rgName": {
-      "value": "dttesting181119"
+      "value": "dttesting191119"
     },
     "location": {
       "value": "westeurope"
     },
     "networkInterfaceName": {
-      "value": "dtubuntuvm181119"
+      "value": "dttesting191119-nin"
     },
     "networkSecurityGroupName": {
-      "value": "DTUbuntuVM181119-nsg"
+      "value": "dttesting191119-nsg"
     },
     "subnetName": {
       "value": "default"
     },
     "virtualNetworkName": {
-      "value": "DTVMImageTest181119"
+      "value": "dttesting191119-vnn"
     },
     "subnets": {
       "value": [
@@ -31,10 +31,10 @@
       ]
     },
     "publicIpAddressName": {
-      "value": "DTUbuntuVMip181119"
+      "value": "dttesting191119-pip"
     },
     "virtualMachineName": {
-      "value": "DTUbuntuVM181119"
+      "value": "dttesting191119-vm"
     },
     "virtualMachineSize": {
       "value": "Standard_B1ms"
