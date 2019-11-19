@@ -1,1 +1,55 @@
-
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "rgName": {
+      "value": "dttesting191119"
+    },
+    "location": {
+      "value": "westeurope"
+    },
+    "networkInterfaceName": {
+      "value": "dttesting191119-nin"
+    },
+    "subnetName": {
+      "value": "default"
+    },
+    "virtualNetworkName": {
+      "value": "dttesting191119-vnn"
+    },
+    "subnets": {
+      "value": [
+        {
+          "name": "default",
+          "properties": {
+            "addressPrefix": "10.0.1.0/24"
+          }
+        }
+      ]
+    },
+    "publicIpAddressName": {
+      "value": "dttesting191119-pip"
+    },
+    "virtualMachineName": {
+      "value": "dttesting191119-vm"
+    },
+    "osDiskType": {
+      "value": "Premium_LRS"
+    },
+    "virtualMachineSize": {
+      "value": "Standard_B1ms"
+    },
+    "adminUsername": {
+      "value": "omnia"
+    },
+    "adminPassword": {
+      "value": "ForrestNB_2012##"
+    },
+    "diagnosticsStorageAccountName": {
+      "value": "dttesting191119saa"
+    },
+    "networkSecurityGroupName": {
+      "value": "dttesting191119-nsg"
+    },
+  }
+}
