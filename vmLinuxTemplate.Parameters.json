@@ -3,19 +3,19 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "rgName": {
-      "value": "dttesting191119"
+      "value": "dt2011193"
     },
     "location": {
       "value": "westeurope"
     },
     "networkInterfaceName": {
-      "value": "dttesting191119-nin"
+      "value": "dt2011193-nin"
     },
     "subnetName": {
       "value": "default"
     },
     "virtualNetworkName": {
-      "value": "dttesting191119-vnn"
+      "value": "dt2011193-vnn"
     },
     "subnets": {
       "value": [
@@ -28,7 +28,7 @@
       ]
     },
     "publicIpAddressName": {
-      "value": "dttesting191119-pip"
+      "value": "dt2011193-pip"
     },
     "virtualMachineName": {
       "value": "dttesting191119-vm"
@@ -49,7 +49,7 @@
       "value": "dttesting191119saa"
     },
     "networkSecurityGroupName": {
-      "value": "dttesting191119-nsg"
+      "value": "dt2011193-nsg"
     },
   }
 }
