@@ -130,7 +130,6 @@
           "location": "[resourceGroup().location]",
           "apiVersion": "2019-03-01",
           "dependsOn": [
-		  "[resourceId('Microsoft.Compute/publicIPAddresses/', parameters('publicIpAddressName'))]",
             "[resourceId('Microsoft.Compute/virtualMachines/', parameters('virtualMachineName'))]"
           ],
           "tags": {
