@@ -45,7 +45,9 @@
         "type": "String"
     }
   },
-  "variables": {},
+  "variables": {
+  "fqdn": "[reference(resourceId('Microsoft.Network/publicIPAddresses', variables('publicIpAddressName'))).dnsSettings.fqdn]"
+  },
   "resources": [
     {
       "type": "Microsoft.Network/networkInterfaces",
@@ -142,7 +144,7 @@
             "autoUpgradeMinorVersion": true,
             "settings": {},
             "protectedSettings": {
-              "commandToExecute": "[concat('sudo sed -i \"s/PLATFORM_HOSTNAME/', parameters('publicIPAddressFQDN'), '/g\" /home/omnia/config/omnia.json')]"
+              "commandToExecute": "[concat('sudo sed -i \"s/PLATFORM_HOSTNAME/', variables('fqdn'), '/g\" /home/omnia/config/omnia.json')]"
             }
           }
         }
