@@ -87,7 +87,10 @@
             "name": "[concat(parameters('vmPrefix'), '-gateway-os-vhd')]"
           },
           "imageReference": {
-            "id": "[resourceId('DTVMImageTest','Microsoft.Compute/images', parameters('vmPrefix'))]"
+            "publisher": "numbersbelieve",
+            "offer": "omnia-low-code-platform-v3-vm",
+            "sku": "omnia-low-code-platform-v3-vm-disk",
+            "version": "latest"
           }
         },
         "networkProfile": {
