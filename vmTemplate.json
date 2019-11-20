@@ -46,7 +46,7 @@
     }
   },
   "variables": {
-  "fqdn": "[reference(resourceId('Microsoft.Network/publicIPAddresses', variables('publicIpAddressName'))).dnsSettings.fqdn]"
+  "fqdn": "[reference(resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIpAddressName'))).dnsSettings.fqdn]"
   },
   "resources": [
     {
