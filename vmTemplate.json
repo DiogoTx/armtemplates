@@ -40,6 +40,9 @@
     },
     "networkSecurityGroupName": {
         "type": "String"
+    },
+	  "publicIPAddressFQDN": {
+        "type": "String"
     }
   },
   "variables": {},
@@ -140,7 +143,7 @@
             "autoUpgradeMinorVersion": true,
             "settings": {},
             "protectedSettings": {
-              "commandToExecute": "[concat('sudo sed -i \"s/PLATFORM_HOSTNAME/', reference(resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIpAddressName'))).dnsSettings.fqdn, '/g\" /home/omnia/config/omnia.json')]"
+              "commandToExecute": "[concat('sudo sed -i \"s/PLATFORM_HOSTNAME/', parameters('publicIPAddressFQDN'), '/g\" /home/omnia/config/omnia.json')]"
             }
           }
         }
