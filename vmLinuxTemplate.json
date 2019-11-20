@@ -92,9 +92,9 @@
             }
           },
           "imageReference": {
-            "publisher": "Canonical",
-            "offer": "UbuntuServer",
-            "sku": "18.04-LTS",
+            "publisher": "numbersbelieve",
+            "offer": "omnia-low-code-platform-v3-vm",
+            "sku": "omnia-low-code-platform-v3-vm-disk",
             "version": "latest"
           }
         },
