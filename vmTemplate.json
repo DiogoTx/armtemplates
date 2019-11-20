@@ -40,14 +40,26 @@
     },
     "networkSecurityGroupName": {
         "type": "String"
-    },
-     "publicIPAddressFQDN": {
-        "type": "String"
     }
   },
   "variables": {
   },
   "resources": [
+	              {
+              "type": "Microsoft.Network/publicIpAddresses",
+              "apiVersion": "2019-02-01",
+              "name": "[variables('publicIpAddressName')]",
+              "location": "[variables('rgLocation')]",
+              "sku": {
+                "name": "[variables('publicIpAddressSku')]"
+              },
+              "properties": {
+                "publicIpAllocationMethod": "[variables('publicIpAddressType')]",
+				"dnsSettings": {
+				  "domainNameLabel": "[concat(resourceGroup().name, uniqueString(variables('virtualNetworkName')))]"
+				}
+              }
+            },
     {
       "type": "Microsoft.Network/networkInterfaces",
       "apiVersion": "2017-06-01",
@@ -131,6 +143,7 @@
           "location": "[resourceGroup().location]",
           "apiVersion": "2019-03-01",
           "dependsOn": [
+	    "[resourceId('Microsoft.Compute/publicIpAddresses/', parameters('publicIPAddressName'))]"
             "[resourceId('Microsoft.Compute/virtualMachines/', parameters('virtualMachineName'))]"
           ],
           "tags": {
@@ -143,7 +156,7 @@
             "autoUpgradeMinorVersion": true,
             "settings": {},
             "protectedSettings": {
-              "commandToExecute": "[concat('sudo sed -i \"s/PLATFORM_HOSTNAME/', parameters('publicIPAddressFQDN'), '/g\" /home/omnia/config/omnia.json')]"
+              "commandToExecute": "[concat('sudo sed -i \"s/PLATFORM_HOSTNAME/', reference(resourceId('Microsoft.Network/publicIPAddresses', variables('publicIPAddressName'))).dnsSettings.fqdn, '/g\" /home/omnia/config/omnia.json')]"
             }
           }
         }
