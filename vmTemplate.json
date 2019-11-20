@@ -76,7 +76,12 @@
       "location": "[parameters('location')]",
       "dependsOn": [
         "[resourceId('Microsoft.Network/networkInterfaces/', parameters('networkInterfaceName'))]"
-      ],
+      ],	    
+  "plan": {
+    "name": "omnia_low_code",
+    "publisher": "numbersbelieve",
+    "product": "omnia_low_code"
+  },
       "properties": {
         "hardwareProfile": {
           "vmSize": "[parameters('virtualMachineSize')]"
