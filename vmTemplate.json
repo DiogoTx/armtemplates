@@ -67,6 +67,9 @@
       "apiVersion": "2017-06-01",
       "name": "[parameters('networkInterfaceName')]",
       "location": "[parameters('location')]",
+	          "dependsOn": [
+        "[resourceId('Microsoft.Network/publicIpAddresses/', parameters('publicIpAddressName'))]"
+      ],
       "properties": {
         "ipConfigurations": [
           {
