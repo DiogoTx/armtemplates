@@ -35,9 +35,6 @@
     "diagnosticsStorageAccountName": {
       "type": "String"
     },
-    "vmPrefix": {
-      "type": "String"
-    },
     "networkSecurityGroupName": {
         "type": "String"
     }
@@ -110,7 +107,7 @@
         "storageProfile": {
           "osDisk": {
             "createOption": "fromImage",
-            "name": "[concat(parameters('vmPrefix'), '-gateway-os-vhd')]"
+            "name": "[concat(parameters('virtualMachineName'), '-gateway-os-vhd')]"
           },
           "imageReference": {
             "publisher": "numbersbelieve",
