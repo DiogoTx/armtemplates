@@ -78,9 +78,9 @@
         "[resourceId('Microsoft.Network/networkInterfaces/', parameters('networkInterfaceName'))]"
       ],	    
   "plan": {
-    "name": "omnia_low_code",
+    "name": "omnia-low-code-platform-v3-vm",
     "publisher": "numbersbelieve",
-    "product": "omnia_low_code"
+    "product": "omnia-low-code-platform-v3-vm"
   },
       "properties": {
         "hardwareProfile": {
@@ -93,8 +93,8 @@
           },
           "imageReference": {
             "publisher": "numbersbelieve",
-            "offer": "omnia_low_code",
-            "sku": "omnia_low_code",
+            "offer": "omnia-low-code-platform-v3-vm",
+            "sku": "omnia-low-code-platform-v3-vm-disk",
             "version": "latest"
           }
         },
