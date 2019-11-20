@@ -158,7 +158,7 @@
             "autoUpgradeMinorVersion": true,
             "settings": {},
             "protectedSettings": {
-              "commandToExecute": "[concat('sudo sed -i \"s/PLATFORM_HOSTNAME/', reference(resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddressName'))).dnsSettings.fqdn, '/g\" /home/omnia/config/omnia.json')]"
+              "commandToExecute": "[concat('sudo sed -i \"s/PLATFORM_HOSTNAME/', reference(resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddressName'))).dnsSettings.fqdn, '/g\" /home/omnia/config/omnia.json', ' && sudo systemctl restart omnia')]"
             }
           }
         }
