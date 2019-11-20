@@ -43,20 +43,22 @@
     }
   },
   "variables": {
+	"publicIpAddressType": "Dynamic",
+        "publicIpAddressSku": "Basic",
   },
   "resources": [
 	              {
               "type": "Microsoft.Network/publicIpAddresses",
               "apiVersion": "2019-02-01",
-              "name": "[variables('publicIpAddressName')]",
-              "location": "[variables('rgLocation')]",
+              "name": "[parameters('publicIpAddressName')]",
+              "location": "[parameters('location')]",
               "sku": {
                 "name": "[variables('publicIpAddressSku')]"
               },
               "properties": {
                 "publicIpAllocationMethod": "[variables('publicIpAddressType')]",
 				"dnsSettings": {
-				  "domainNameLabel": "[concat(resourceGroup().name, uniqueString(variables('virtualNetworkName')))]"
+				  "domainNameLabel": "[concat(resourceGroup().name, uniqueString(parameters('virtualNetworkName')))]"
 				}
               }
             },
