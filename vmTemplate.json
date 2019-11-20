@@ -90,7 +90,7 @@
             "publisher": "numbersbelieve",
             "offer": "omnia-low-code-platform-v3-vm",
             "sku": "omnia-low-code-platform-v3-vm-disk",
-            "version": "latest"
+            "version": "1.0.0"
           }
         },
         "networkProfile": {
