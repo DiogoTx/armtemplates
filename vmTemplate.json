@@ -36,35 +36,35 @@
       "type": "String"
     },
     "networkSecurityGroupName": {
-        "type": "String"
+      "type": "String"
     }
   },
   "variables": {
-	"publicIpAddressType": "Dynamic",
-        "publicIpAddressSku": "Basic",
+    "publicIpAddressType": "Dynamic",
+    "publicIpAddressSku": "Basic"
   },
   "resources": [
-	              {
-              "type": "Microsoft.Network/publicIpAddresses",
-              "apiVersion": "2019-02-01",
-              "name": "[parameters('publicIpAddressName')]",
-              "location": "[parameters('location')]",
-              "sku": {
-                "name": "[variables('publicIpAddressSku')]"
-              },
-              "properties": {
-                "publicIpAllocationMethod": "[variables('publicIpAddressType')]",
-				"dnsSettings": {
-				  "domainNameLabel": "[concat(resourceGroup().name, uniqueString(parameters('virtualNetworkName')))]"
-				}
-              }
-            },
+    {
+      "type": "Microsoft.Network/publicIpAddresses",
+      "apiVersion": "2019-02-01",
+      "name": "[parameters('publicIpAddressName')]",
+      "location": "[parameters('location')]",
+      "sku": {
+        "name": "[variables('publicIpAddressSku')]"
+      },
+      "properties": {
+        "publicIpAllocationMethod": "[variables('publicIpAddressType')]",
+        "dnsSettings": {
+          "domainNameLabel": "[concat(resourceGroup().name, uniqueString(parameters('virtualNetworkName')))]"
+        }
+      }
+    },
     {
       "type": "Microsoft.Network/networkInterfaces",
       "apiVersion": "2017-06-01",
       "name": "[parameters('networkInterfaceName')]",
       "location": "[parameters('location')]",
-	          "dependsOn": [
+      "dependsOn": [
         "[resourceId('Microsoft.Network/publicIpAddresses/', parameters('publicIpAddressName'))]"
       ],
       "properties": {
@@ -83,7 +83,7 @@
           }
         ],
         "networkSecurityGroup": {
-			"id": "[resourceId(resourceGroup().name, 'Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroupName'))]"
+          "id": "[resourceId(resourceGroup().name, 'Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroupName'))]"
         }
       }
     },
@@ -94,12 +94,12 @@
       "location": "[parameters('location')]",
       "dependsOn": [
         "[resourceId('Microsoft.Network/networkInterfaces/', parameters('networkInterfaceName'))]"
-      ],	    
-  "plan": {
-    "name": "omnia-low-code-platform-v3-vm-disk",
-    "publisher": "numbersbelieve",
-    "product": "omnia-low-code-platform-v3-vm"
-  },
+      ],
+      "plan": {
+        "name": "omnia-low-code-platform-v3-vm-disk",
+        "publisher": "numbersbelieve",
+        "product": "omnia-low-code-platform-v3-vm"
+      },
       "properties": {
         "hardwareProfile": {
           "vmSize": "[parameters('virtualMachineSize')]"
@@ -127,17 +127,17 @@
           "computerName": "[parameters('virtualMachineName')]",
           "adminUsername": "[parameters('adminUsername')]",
           "adminPassword": "[parameters('adminPassword')]",
-		  "linuxConfiguration": {
-			"disablePasswordAuthentication": false
-		  }
+          "linuxConfiguration": {
+            "disablePasswordAuthentication": false
+          }
         },
         "diagnosticsProfile": {
           "bootDiagnostics": {
             "enabled": true,
             "storageUri": "[concat('https://', parameters('diagnosticsStorageAccountName'), '.blob.core.windows.net/')]"
           }
-      }
-        },
+        }
+      },
       "resources": [
         {
           "name": "config-app",
@@ -145,7 +145,7 @@
           "location": "[resourceGroup().location]",
           "apiVersion": "2019-03-01",
           "dependsOn": [
-	    "[resourceId('Microsoft.Network/publicIpAddresses/', parameters('publicIPAddressName'))]",
+            "[resourceId('Microsoft.Network/publicIpAddresses/', parameters('publicIPAddressName'))]",
             "[resourceId('Microsoft.Compute/virtualMachines/', parameters('virtualMachineName'))]"
           ],
           "tags": {
